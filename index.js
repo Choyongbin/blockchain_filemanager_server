@@ -6,7 +6,7 @@ app.set('view engine', 'ejs');
 
 app.use('/', require('./routes/main'));
 
-var port = 3002;
+var port = 3000;
 app.listen(port, function(){
   var dir = './uploadedFiles';
   if (!fs.existsSync(dir)) fs.mkdirSync(dir); 
