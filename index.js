@@ -11,5 +11,5 @@ app.listen(port, function(){
   var dir = './uploadedFiles';
   if (!fs.existsSync(dir)) fs.mkdirSync(dir); 
 
-  console.log('server on! http://localhost:'+port);
+  console.log('server on!');
 });
