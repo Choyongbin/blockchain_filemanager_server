@@ -3,7 +3,7 @@ const SHA256 = require('crypto-js/sha256');
 var router   = express.Router();
 var multer   = require('multer'); 
 const mysql = require('mysql');
-
+/*
 const connection = mysql.createConnection({
   host : '3.37.53.134',
   user : 'root',
@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect()
-
+*/
 
 var storage  = multer.diskStorage({ 
   destination(req, file, cb) {
@@ -32,8 +32,12 @@ router.get('/', function(req,res){
 router.post('/uploadFile', upload.single('attachment'), function(req,res){ 
   res.render('confirmation', { file:req.file, files:null });
   var aa = SHA256(req.file).toString()
-  //console.log(aa)
-  connection.query('INSERT INTO file(hash) value(' + aa + ')');
+  console.log(req.file)
+  console.log(req.file.buffer)
+  var path = '/uploadFile/' + req.file.originalname
+  console.log(path)
+  //connection.query('INSERT INTO file(hash, path) value(\'' + aa + '\' , ' + '\''+ path +'\')');
+  console.log('INSERT INTO file(hash, path) value(\'' + aa + '\' , ' + '\''+ path +'\')')
 });
 
 router.post('/uploadFileWithOriginalFilename', uploadWithOriginalFilename.single('attachment'), function(req,res){ 
