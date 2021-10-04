@@ -1,26 +1,43 @@
-<h3>1. Single File Upload</h3>
-<form action="/uploadFile" enctype="multipart/form-data" method="post">
-  <input type="file" name="attachment">
-  <button type="submit" class="btn btn-primary">Upload</button>
-</form>
-<hr>
-
-<h3>2. Single File Upload (Keep Original Filename)</h3>
-<form action="/uploadFileWithOriginalFilename" enctype="multipart/form-data" method="post">
-  <input type="file" name="attachment">
-  <button type="submit" class="btn btn-primary">Upload</button>
-</form>
-<hr>
-
-<h3>3. Multiple File Upload</h3>
-<form action="/uploadFiles" enctype="multipart/form-data" method="post">
-  <input type="file" name="attachments" multiple>
-  <button type="submit" class="btn btn-primary">Upload</button>
-</form>
-<hr>
-
-<h3>4. Multiple File Upload (Keep Original Filename)</h3>
-<form action="/uploadFilesWithOriginalFilename" enctype="multipart/form-data" method="post">
-  <input type="file" name="attachments" multiple>
-  <button type="submit" class="btn btn-primary">Upload</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="script.js" defer></script>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <h3>1. Single File Upload</h3>
+  <form action="/uploadFile" enctype="multipart/form-data" method="post">
+    <input type="file" name="attachment">
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+  <hr>
+  
+  <h3>2. Single File Upload (Keep Original Filename)</h3>
+  <form action="/uploadFileWithOriginalFilename" enctype="multipart/form-data" method="post">
+    <input type="file" name="attachment">
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+  <hr>
+  
+  <h3>3. Multiple File Upload</h3>
+  <form action="/uploadFiles" enctype="multipart/form-data" method="post">
+    <input type="file" name="attachments" multiple>
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+  <hr>
+  
+  <h3>4. Multiple File Upload (Keep Original Filename)</h3>
+  <form action="/uploadFilesWithOriginalFilename" enctype="multipart/form-data" method="post">
+    <input type="file" name="attachments" multiple>
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form> 
+  
+  <div id = "imgClass"> 
+  
+  </div>
+</body>
+</html>
