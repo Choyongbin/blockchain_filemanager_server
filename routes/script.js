@@ -1,4 +1,5 @@
 var imgbox = document.getElementById('imgClass')
+/*
 const connection = mysql.createConnection({
     host : 'localhost',
     user : 'root',
@@ -7,8 +8,9 @@ const connection = mysql.createConnection({
   });
   
 connection.connect()
-
+*/
 $(document).ready(function(){
+    /*
     var sql = 'SELECT path from file'
     connection.query(sql, function(err, rows, fields){
         if(err){
@@ -20,11 +22,11 @@ $(document).ready(function(){
             }
         }
     })
-    /*
+    */
     var img = document.createElement('img')
     img.src = 'Server.jpg'
     img.width = 400
     img.height = 500
     imgbox.appendChild(img)
-    */
+    
 })

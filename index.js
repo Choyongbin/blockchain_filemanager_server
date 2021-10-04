@@ -4,7 +4,6 @@ var fs        = require('fs');
 var serverStatic = require('serve-static');
 var path = require('path');
 
-
 app.set('view engine', 'ejs');
 app.use(serverStatic(path.join(__dirname, 'uploadedFiles')));
 app.use(serverStatic(path.join(__dirname, 'routes')));
