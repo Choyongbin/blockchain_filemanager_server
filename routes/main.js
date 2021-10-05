@@ -3,7 +3,9 @@ const SHA256 = require('crypto-js/sha256');
 var router   = express.Router();
 var multer   = require('multer'); 
 const mysql = require('mysql');
-/*
+const fs = require('fs');
+const fr = require('filereader'), filereader = new fr()
+
 const connection = mysql.createConnection({
   host : 'localhost',
   user : 'root',
@@ -12,7 +14,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect()
-*/
+
 
 var storage  = multer.diskStorage({ 
   destination(req, file, cb) {
@@ -23,68 +25,103 @@ var storage  = multer.diskStorage({
     cb(null, `${file.originalname}`);
   },
 });
+
 var upload = multer({ dest: 'uploadedFiles/' }); 
-var uploadWithOriginalFilename = multer({ storage: storage }); 
+var uploadWithOriginalFilename = multer({ 
+  storage : storage
+}); 
+
+function getFileRedaer(filename){
+  fr.readAsDataURL(new File('uploadedFiles/' + filename))
+
+  fr.on('data', function(data){
+    console.log(data)
+  })
+}
+
+function getStream(filename, onfileHashed){
+  const readStream = fs.readFile('uploadedFiles/' + filename, (err, data)=>{
+    if(err){
+      console.log(err)
+      onfileHashed(null)
+    }
+    else{
+      var filehash = SHA256(data.toString()).toString()
+      connection.query('INSERT INTO file(hash, path) value(\'' + filehash + '\' , ' + '\''+ filename +'\')');
+      onfileHashed(filehash)
+    }
+  })
+}
 
 router.get('/', function(req,res){
-  /*
+  
   var sql = 'SELECT path from file'
     connection.query(sql, function(err, rows, fields){
         if(err){
             console.log(err)
-        }
+        } 
         else{
             for(var i = 0; i<rows.lenght; i++){
                 console.log(rows[i].description)
             }
         }
     })
-    */
+    
   res.render('upload');
 });
 
 router.post('/uploadFile', upload.single('attachment'), function(req,res){ 
   res.render('confirmation', { file:req.file, files:null });
-  var aa = SHA256(req.file).toString()
-  //console.log(req.file)
-  //console.log(req.file.buffer)
-  var path = '/uploadFiles/' + req.file.originalname
-  //console.log(path)
-  //connection.query('INSERT INTO file(hash, path) value(\'' + aa + '\' , ' + '\''+ path +'\')');
-  //console.log('INSERT INTO file(hash, path) value(\'' + aa + '\' , ' + '\''+ path +'\')')
+  
+  getStream(req.file.originalname, hash =>{
+    if(!hash){
+      res.status(500).end()
+      return
+    }
+    else{
+      res.status(200).json({hash}).end()
+    }
+  })
 });
 
 router.post('/uploadFileWithOriginalFilename', uploadWithOriginalFilename.single('attachment'), function(req,res){ 
   res.render('confirmation', { file:req.file, files:null });
-  var aa = SHA256(req.file).toString()
-  //console.log(req.file)
-  //console.log(req.file.buffer)
-  var path = '/uploadFiles/' + req.file.originalname
-  //console.log(path)
-  //connection.query('INSERT INTO file(hash, path) value(\'' + aa + '\' , ' + '\''+ path +'\')');
-  //console.log('INSERT INTO file(hash, path) value(\'' + aa + '\' , ' + '\''+ path +'\')')
+  getStream(req.file.originalname, hash =>{
+    if(!hash){
+      res.status(500).end()
+      return
+    }
+    else{
+      res.status(200).json({hash}).end()
+    }
+  })
 });
 
 router.post('/uploadFiles', upload.array('attachments'), function(req,res){
   res.render('confirmation', { file : null, files:req.files} );
-  var aa = SHA256(req.file).toString()
-  //console.log(req.file)
-  //console.log(req.file.buffer)
-  var path = '/uploadFiles/' + req.file.originalname
-  //console.log(path)
-  //connection.query('INSERT INTO file(hash, path) value(\'' + aa + '\' , ' + '\''+ path +'\')');
-  //console.log('INSERT INTO file(hash, path) value(\'' + aa + '\' , ' + '\''+ path +'\')')
+  
+  getStream(req.file.originalname, hash =>{
+    if(!hash){
+      res.status(500).end()
+      return
+    }
+    else{
+      res.status(200).json({hash}).end()
+    }
+  })
 });
 
 router.post('/uploadFilesWithOriginalFilename', uploadWithOriginalFilename.array('attachments'), function(req,res){ 
   res.render('confirmation', { file:null, files:req.files });
-  var aa = SHA256(req.file).toString()
-  //console.log(req.file)
-  //console.log(req.file.buffer)
-  var path = '/uploadFiles/' + req.file.originalname
-  //console.log(path)
-  //connection.query('INSERT INTO file(hash, path) value(\'' + aa + '\' , ' + '\''+ path +'\')');
-  //console.log('INSERT INTO file(hash, path) value(\'' + aa + '\' , ' + '\''+ path +'\')')
+  getStream(req.file.originalname, hash =>{
+    if(!hash){
+      res.status(500).end()
+      return
+    }
+    else{
+      res.status(200).json({hash}).end()
+    }
+  })
 });
 
 module.exports = router;
