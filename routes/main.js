@@ -6,6 +6,7 @@ const mysql = require('mysql');
 const fs = require('fs');
 const fr = require('filereader'), filereader = new fr()
 
+
 const connection = mysql.createConnection({
   host : 'localhost',
   user : 'root',
@@ -26,18 +27,26 @@ var storage  = multer.diskStorage({
   },
 });
 
+var tempStorage  = multer.diskStorage({ 
+  destination(req, file, cb) {
+    cb(null, 'tempFile/');
+  },
+  filename(req, file, cb) {
+    //cb(null, `${Date.now()}__${file.originalname}`);
+    cb(null, `${file.originalname}`);
+  },
+});
+
+
 var upload = multer({ dest: 'uploadedFiles/' }); 
+
 var uploadWithOriginalFilename = multer({ 
   storage : storage
 }); 
 
-function getFileRedaer(filename){
-  fr.readAsDataURL(new File('uploadedFiles/' + filename))
-
-  fr.on('data', function(data){
-    console.log(data)
-  })
-}
+var tempLoad = multer({
+  storage : tempStorage
+})
 
 function getStream(filename, onfileHashed){
   const readStream = fs.readFile('uploadedFiles/' + filename, (err, data)=>{
@@ -47,14 +56,27 @@ function getStream(filename, onfileHashed){
     }
     else{
       var filehash = SHA256(data.toString()).toString()
-      connection.query('INSERT INTO file(hash, path) value(\'' + filehash + '\' , ' + '\''+ filename +'\')');
+      //connection.query('INSERT INTO file(hash, path) value(\'' + filehash + '\' , ' + '\''+ filename +'\')');
       onfileHashed(filehash)
     }
   })
 }
 
+function sendHash(filename, onfileHashed){
+  const readStream = fs.readFile('tempFile/' + filename, (err, data) => {
+      if(err) {
+           console.log(err)
+           onfileHashed(null)
+      }
+      else {
+          var filehash = SHA256(data.toString()).toString()
+          onfileHashed(filehash)
+      }
+  })
+}
+
 router.get('/', function(req,res){
-  
+  /*
   var sql = 'SELECT path from file'
     connection.query(sql, function(err, rows, fields){
         if(err){
@@ -66,13 +88,11 @@ router.get('/', function(req,res){
             }
         }
     })
-    
+    */
   res.render('upload');
 });
 
 router.post('/uploadFile', upload.single('attachment'), function(req,res){ 
-  res.render('confirmation', { file:req.file, files:null });
-  
   getStream(req.file.originalname, hash =>{
     if(!hash){
       res.status(500).end()
@@ -85,7 +105,6 @@ router.post('/uploadFile', upload.single('attachment'), function(req,res){
 });
 
 router.post('/uploadFileWithOriginalFilename', uploadWithOriginalFilename.single('attachment'), function(req,res){ 
-  res.render('confirmation', { file:req.file, files:null });
   getStream(req.file.originalname, hash =>{
     if(!hash){
       res.status(500).end()
@@ -98,7 +117,6 @@ router.post('/uploadFileWithOriginalFilename', uploadWithOriginalFilename.single
 });
 
 router.post('/uploadFiles', upload.array('attachments'), function(req,res){
-  res.render('confirmation', { file : null, files:req.files} );
   
   getStream(req.file.originalname, hash =>{
     if(!hash){
@@ -112,7 +130,6 @@ router.post('/uploadFiles', upload.array('attachments'), function(req,res){
 });
 
 router.post('/uploadFilesWithOriginalFilename', uploadWithOriginalFilename.array('attachments'), function(req,res){ 
-  res.render('confirmation', { file:null, files:req.files });
   getStream(req.file.originalname, hash =>{
     if(!hash){
       res.status(500).end()
@@ -122,6 +139,20 @@ router.post('/uploadFilesWithOriginalFilename', uploadWithOriginalFilename.array
       res.status(200).json({hash}).end()
     }
   })
+});
+
+router.post('/sendHash', tempLoad.single('attachments'), function(req, res){
+  
+  sendHash(req.file.originalname, hash =>{
+      if(!hash){
+          res.status(500).end()
+          return
+      }
+      else{
+          res.status(200).json({hash}).end()
+      }
+  })
+  
 });
 
 module.exports = router;
