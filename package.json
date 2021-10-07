@@ -1,5 +1,5 @@
 {
-  "name": "fileUpload",
+  "name": "cnc-blockchain-files",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
@@ -13,7 +13,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "devStart": "nodemon index.js"
+    "devStart": "nodemon index.js",
+    "deploy": "forever -a --uid=cnc-blockchain-files -w -m 1000 index.js"
   },
   "keywords": [],
   "author": "",
