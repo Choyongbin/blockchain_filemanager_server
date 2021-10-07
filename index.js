@@ -12,8 +12,9 @@ app.use(bodyParser.json());
 app.use(serverStatic(path.join(__dirname, "uploadedFiles")));
 app.use(serverStatic(path.join(__dirname, "routes")));
 app.use("/", require("./routes/main"));
+app.use("/files", require("./routes/index"));
 
-const PORT = 3005;
+const PORT = 3004;
 app.listen(PORT, function () {
   const dir = "./uploadedFiles";
   const dir2 = "./tempFile";
