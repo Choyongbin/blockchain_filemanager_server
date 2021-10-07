@@ -128,6 +128,7 @@ router.post("/hash", tempUpload.single("attachment"), (req, res, next) => {
   }
   hashFileAsync("tempFile/", fileName, (hash) => {
     if (hash) {
+      fs.unlinkSync(`tempFile/${fileName}`);
       res.status(200).json({ hash }).end();
     } else {
       next({
