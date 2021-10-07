@@ -9,6 +9,15 @@ const fr = require("filereader"),
 const mime = require("mime");
 const path = require("path");
 
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "1234",
+  database: "fileNFT",
+});
+
+connection.connect();
+
 const storage = multer.diskStorage({
   destination(req, file, cb) {
     cb(null, "uploadedFiles/");
@@ -59,7 +68,7 @@ const hashFileAsync = (path, filename, onfileHashed) => {
 
 //get all info of uploaded files
 router.get("/", (req, res, next) => {
-  connection.query("SELECT path FROM file", function (err, result) {
+  connection.query("SELECT * FROM file", function (err, result) {
     if (err) {
       console.error(err);
       res.status(500).end();
@@ -73,15 +82,15 @@ router.get("/", (req, res, next) => {
 router.get("/:nft", (req, res, next) => {
   const { nft } = req.params;
 
-  connection.query("SELECT path FROM file WHERE hash=?", [nft], function (err, result) {
+  connection.query("SELECT * FROM file WHERE hash=?", [nft], function (err, result) {
     if (err) {
       console.log(err);
       res.status(500).end();
       return;
     }
-    if(result.length === 0){
-        res.status(404).end();
-        return;
+    if (result.length === 0) {
+      res.status(404).end();
+      return;
     }
 
     const mimetype = mime.lookup(result[0].path);
@@ -95,7 +104,7 @@ router.get("/:nft", (req, res, next) => {
 //create new file and return file hash
 router.post("/", uploadWithOriginalFilename.single("attachment"), (req, res, next) => {
   const fileName = req.file.originalname;
-  hashFileAsync("uploadedFiles"/, fileName, (hash) => {
+  hashFileAsync("uploadedFiles/", fileName, (hash) => {
     if (hash) {
       res.status(200).json({ hash }).end();
     } else {
