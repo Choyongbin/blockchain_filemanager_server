@@ -16,10 +16,10 @@ app.use("/files", require("./routes/index"));
 
 const PORT = 3004;
 app.listen(PORT, function () {
-  const dir = "./uploadedFiles";
-  const dir2 = "./tempFile";
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir);
-  if (!fs.existsSync(dir2)) fs.mkdirSync(dir2);
+  const requiredDirs = ["./uploadedFiles", "./tempFile"];
+  requiredDirs.forEach((dir) => {
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+  });
 
   console.log("server on!");
 });
