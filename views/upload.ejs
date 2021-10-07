@@ -37,8 +37,14 @@
     <button type="submit" class="btn btn-primary">Upload</button>
   </form> 
 
-  <h3>5. Test</h3>
+  <h3>5. TestSendHash</h3>
   <form action="/sendHash" enctype="multipart/form-data" method="post">
+    <input type="file" name="attachments" multiple>
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form> 
+
+  <h3>6. TestSendFile</h3>
+  <form action="/sendFile" enctype="multipart/form-data" method="post">
     <input type="file" name="attachments" multiple>
     <button type="submit" class="btn btn-primary">Upload</button>
   </form> 

@@ -4,9 +4,12 @@ var router   = express.Router();
 var multer   = require('multer'); 
 const mysql = require('mysql');
 const fs = require('fs');
+const { nextTick } = require('process');
 const fr = require('filereader'), filereader = new fr()
+const  mime = require('mime');
+const path = require('path');
 
-
+/*
 const connection = mysql.createConnection({
   host : 'localhost',
   user : 'root',
@@ -15,8 +18,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect()
-
-
+*/
 var storage  = multer.diskStorage({ 
   destination(req, file, cb) {
     cb(null, 'uploadedFiles/');
@@ -141,8 +143,7 @@ router.post('/uploadFilesWithOriginalFilename', uploadWithOriginalFilename.array
   })
 });
 
-router.post('/sendHash', tempLoad.single('attachments'), function(req, res){
-  
+router.post('/sendHash', tempLoad.single('file'), function(req, res){
   sendHash(req.file.originalname, hash =>{
       if(!hash){
           res.status(500).end()
@@ -152,7 +153,24 @@ router.post('/sendHash', tempLoad.single('attachments'), function(req, res){
           res.status(200).json({hash}).end()
       }
   })
-  
+});
+
+router.post('/sendFile',(req, res, next) =>{
+  var sql = 'select path from file where hash=\'' + req.body.nft + '\'';
+  var execSql = connection.query(sql, function(err, result){
+    if(err){
+      console.log(err)
+      res.status(500).end()
+      return
+    }
+    else{
+      const mimetype = mime.lookup(result[0].path)
+      const options = { root : path.join('uploadedFiles/')}
+      res.type(mimetype).sendFile(result[0].path, options, e =>{
+        if(e) next(e)
+      })
+    }
+  })
 });
 
 module.exports = router;
