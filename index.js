@@ -1,26 +1,38 @@
-var express   = require('express');
-var app       = express();
-var fs        = require('fs'); 
-var serverStatic = require('serve-static');
-var path = require('path');
-var cors = require('cors');
-var bodyParser = require('body-parser');
+//const WhatapAgent = require("whatap").NodeAgent;
 
-app.set('view engine', 'ejs');
-app.use(cors())
-app.use(bodyParser.json())
-app.use(serverStatic(path.join(__dirname, 'uploadedFiles')));
-app.use(serverStatic(path.join(__dirname, 'routes')));
-app.use('/', require('./routes/main'));
+const express = require("express");
+const app = express();
+const fs = require("fs");
+//const serverStatic = require("serve-static");
+const path = require("path");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const http= require('http');
 
-var port = 3005;
-app.listen(port, function(){
-  var dir = './uploadedFiles';
-  var dir2 = './tempFile';
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir); 
-  if (!fs.existsSync(dir2)) fs.mkdirSync(dir2); 
-  
-  console.log('server on!');
+app.set("view engine", "ejs");
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "uploadedFiles")));
+app.use(express.static(path.join(__dirname, "routes")));
+app.use("/", require("./routes/main"));
+app.use("/files", require("./routes/index"));
+app.use((err, req, res, next)=>{
+	console.error(err);
+	res.status(err.status||500).json(err).end();
 });
 
-process.on('uncaughtException', console.error);
+const requiredDirs = ["./uploadedFiles", "./tempFile"];
+requiredDirs.forEach((dir) => {
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+});
+
+const PORT = 3004;
+
+const server= http.createServer(app);
+server.listen(PORT);
+
+console.log("server on!");
+
+process.on("uncaughtException", console.error);
+
+module.exports= app;

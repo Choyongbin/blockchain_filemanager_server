@@ -1,0 +1,176 @@
+20211009 06:11:12 [WHATAP-001] <5988> Start initialize WhaTap Agent...
+20211009 06:11:13 [WHATAP-101] <5988> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+20211009 06:45:26 [WHATAP-001] <10580> Start initialize WhaTap Agent...
+20211009 06:45:27 [WHATAP-101] <10580> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+20211009 06:46:31 [WHATAP-001] <10675> Start initialize WhaTap Agent...
+20211009 06:46:31 [WHATAP-101] <10675> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+20211009 06:46:56 [WHATAP-001] <10726> Start initialize WhaTap Agent...
+20211009 06:46:56 [WHATAP-101] <10726> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+20211009 06:50:08 [WHATAP-001] <11135> Start initialize WhaTap Agent...
+20211009 06:50:08 [WHATAP-101] <11135> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+20211009 06:54:54 [WHATAP-001] <11736> Start initialize WhaTap Agent...
+20211009 06:54:54 [WHATAP-101] <11736> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+20211009 07:19:00 [WHATAP-001] <12557> Start initialize WhaTap Agent...
+20211009 07:19:00 [WHATAP-101] <12557> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+20211009 07:37:54 [WHATAP-001] <14848> Start initialize WhaTap Agent...
+20211009 07:37:54 [WHATAP-101] <14848> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+20211009 07:55:17 [WHATAP-001] <17046> Start initialize WhaTap Agent...
+20211009 07:55:17 [WHATAP-101] <17046> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+20211009 08:06:38 [WHATAP-001] <18459> Start initialize WhaTap Agent...
+20211009 08:06:39 [WHATAP-101] <18459> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+20211009 08:08:51 [WHATAP-001] <18739> Start initialize WhaTap Agent...
+20211009 08:08:51 [WHATAP-101] <18739> Finish initialize configuration...
+TypeError: Logger.printError is not a function
+    at Function.License.getKey (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/license.js:29:16)
+    at Object.resetLicense (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:41:31)
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:30:18)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
+Error: Invalid license
+    at Object.run (/var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/net/security-master.js:36:23)
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/core/agent.js:124:30
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:76:24
+    at /var/www/html/cnc-blockchain-server/3/node_modules/whatap/lib/conf/configure.js:205:21
+    at FSReqCallback.oncomplete (node:fs:188:23)
